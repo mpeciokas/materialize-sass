@@ -4034,7 +4034,9 @@ $jscomp.polyfill = function (e, r, p, m) {
        */
       value: function destroy() {
         this._removeEventHandlers();
-        this._indicator.parentNode.removeChild(this._indicator);
+        if (this._indicator.parentNode) {
+          this._indicator.parentNode.removeChild(this._indicator);
+        }
 
         if (this.options.swipeable) {
           this._teardownSwipeableTabs();
